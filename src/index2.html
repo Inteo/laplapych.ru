@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+  <meta charset="UTF-8">
+  <title>Лап Лапыч</title>
+  <link rel="stylesheet" href="/f/css/main.min.css">
+  <script src="/f/js/main.min.js"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false">
+  </script>
+  <script>
+    function initialize() {
+      var Pos1 = new google.maps.LatLng(56.741499, 38.852657);
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 18,
+        center: Pos1,
+        mapTypeControl: true,
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+        navigationControl: true,
+        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      var Mark = new google.maps.MarkerImage("f/i/marker.png",
+        new google.maps.Size(31,43),
+        new google.maps.Point(0,0),
+        new google.maps.Point(0,43)
+      );
+    }
+    $(document).ready(function() {});
+  </script>
+</head>
+<body onload='initialize()'> 
+  <div class="wrap">
+    //= template/header.html
+    <section class="content">
+      <section class="contacts section">
+        <div class="container">
+          <h1 class="h2">Контакты</h1>
+          <div class="contacts__wrap">
+            <div class="contacts__holder">
+              <div class="contacts__content">
+                <p class="contacts__subtitle">Офис и склад:</p>
+                <div class="contacts__col">
+                  <p class="contacts__caption">Адрес</p>
+                  <p class="contacts__text">г. Переславль-Залесский, <br>Комсомольская площадь, дом 5 </p>
+                </div><div class="contacts__col">
+                  <p class="contacts__caption">Телефоны</p>
+                  <p class="contacts__text">8 800 707 14 70 <br>8 (48535) 3-09-65, 3-06-77</p>
+                </div><div class="contacts__col">
+                  <p class="contacts__caption">Эл. почта</p>
+                  <p class="contacts__text">info@laplapych.ru - заказы и вопросы <br>sale@laplapych.ru - для дилеров </p>
+                </div>
+                <div class="contacts__btn"><a href="#" class="blue-btn">Обратный звонок</a></div>
+              </div>
+              <div class="contacts__map"><div class="map" id="map"></div></div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </section>
+    //= template/footer.html
+  </div>
+  <div class="popups">
+    <div class="popup call-popup" id="call-popup">
+      <p class="popup__head">Обратный звонок</p>
+      <div class="popup__holder">
+        <p class="popup__text">Отправьте ваши данные, и&nbsp;мы&nbsp;перезвоним вам в течение n&nbsp;минут</p>
+        <form id="callback-form" method="post" action="/send/">
+          <p class="popup__caption">Имя *</p>
+          <input type="text" class="input valid" placeholder="Введите ваше имя" name="name" id="name">
+          <p class="popup__caption">Телефон *</p>
+          <input type="tel" class="input valid" placeholder="+7 (___) ___-__-__" name="phone" id="phone">
+          <p class="popup__caption">Комментарий</p>
+          <textarea rows="3" class="input" placeholder="Ваш комментарий" name="comment"></textarea>
+          <div class="popup__submit">
+            <button class="btn">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
