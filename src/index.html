@@ -3,8 +3,8 @@
 <head lang="ru">
   <meta charset="UTF-8">
   <title>Лап Лапыч</title>
-  <link rel="stylesheet" href="/f/css/main.min.css">
-  <script src="/f/js/main.min.js"></script>
+  <link rel="stylesheet" href="f/css/main.min.css">
+  <script src="f/js/main.min.js"></script>
   <script>
     $(document).ready(function() {
       $('.preface').flexslider({
@@ -12,6 +12,7 @@
         animationLoop: false,
         customDirectionNav: $(".preface .flexslider-navigation a")
       });
+      $('.catalog-menu__holder').Stickyfill();
     });
   </script>
 </head>
